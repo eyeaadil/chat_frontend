@@ -8,8 +8,8 @@ export default defineConfig({
 		port: 3001,
 		proxy: {
 			"/api": {
-				// target: "http://192.168.66.105:5000/",
-				target: "https://chatapp-backend-44xd.onrender.com/",
+				target: "http://192.168.66.105:5000/",
+				// target: "https://chatapp-backend-44xd.onrender.com/",
 
 			},
 		},
