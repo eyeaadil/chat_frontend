@@ -8,7 +8,9 @@ export default defineConfig({
 		port: 3001,
 		proxy: {
 			"/api": {
-				target: "http://192.168.66.105:5000/",
+				target: "http://localhost:5000/",
+				changeOrigin: true,
+				secure: false,
 				// target: "https://chatapp-backend-44xd.onrender.com/",
 
 			},

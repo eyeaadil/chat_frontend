@@ -9,7 +9,24 @@ export const useAuthContext = () => {
 
 console.log("Adil ") 	 	
 export const AuthContextProvider = ({ children }) => {
+	const fetchUsers = async () => {
+		try {
+			const res = await fetch("http://localhost:5000/api/users", {
+				method: "GET",
+				credentials: "include", // Include credentials to send the token
+			});
+			const data = await res.json();
+			if (data.error) {
+				throw new Error(data.error);
+			}
+			// Handle the fetched users data (e.g., update state or context)
+			console.log(data); // For debugging purposes
+		} catch (error) {
+			console.error("Error fetching users:", error.message);
+		}
+	};
+
 	const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem("chat-user")) || null);
 
-	return <AuthContext.Provider value={{ authUser, setAuthUser }}>{children}</AuthContext.Provider>;
+	return <AuthContext.Provider value={{ authUser, setAuthUser, fetchUsers }}>{children}</AuthContext.Provider>;
 };

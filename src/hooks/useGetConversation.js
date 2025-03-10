@@ -9,14 +9,25 @@ const useGetConversations = () => {
 		const getConversations = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch("/api/users");
+				const res = await fetch("http://localhost:5000/api/users", {
+					method: "GET",
+					credentials: "include",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				});
+
+				console.log("tttttttt");
 				const data = await res.json();
+
+				console.log("aaaaaa",data);
+				
 				if (data.error) {
 					throw new Error(data.error);
 				}
 				setConversations(data);
 			} catch (error) {
-				toast.error(error.message);
+				toast.error(error.message || "Failed to fetch conversations");
 			} finally {
 				setLoading(false);
 			}
@@ -27,4 +38,5 @@ const useGetConversations = () => {
 
 	return { loading, conversations };
 };
+
 export default useGetConversations;

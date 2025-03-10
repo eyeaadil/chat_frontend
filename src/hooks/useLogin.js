@@ -4,17 +4,18 @@ import { useAuthContext } from "../context/AuthContext";
 
 const useLogin = () => {
 	const [loading, setLoading] = useState(false);
-	const { setAuthUser } = useAuthContext();
+	const { setAuthUser, fetchUsers } = useAuthContext();
 
 	const login = async (username, password) => {
 		const success = handleInputErrors(username, password);
 		if (!success) return;
 		setLoading(true);
 		try {
-			const res = await fetch("/api/auth/login", {
+			const res = await fetch("http://localhost:5000/api/auth/login", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ username, password }),
+				credentials: "include",
 			});
 
 			const data = await res.json();
@@ -24,6 +25,7 @@ const useLogin = () => {
 
 			localStorage.setItem("chat-user", JSON.stringify(data));
 			setAuthUser(data);
+			fetchUsers(); // Fetch updated user list for sidebar
 		} catch (error) {
 			toast.error(error.message);
 		} finally {
