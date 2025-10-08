@@ -1,13 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "./src/main.jsx",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "./src/main.jsx" }
-    ],
-    "public": true
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
