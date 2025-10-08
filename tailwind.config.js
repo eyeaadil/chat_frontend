@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       animation: {
-        'spin-slow': 'spin 15s linear infinite',
-        'spin-slow-reverse': 'spin 20s linear infinite reverse',
+        'spin-slow': 'spin 50s linear infinite',
+        'spin-slow-reverse': 'spin 60s linear infinite reverse',
       },
       spacing: {
         '150vw': '150vw',
