@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://chatapp-backend-1-2k8y.onrender.com/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
