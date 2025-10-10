@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import GenderCheckbox from "./GenderCheckbox";
 import useSignup from "../../hooks/useSignup";
+import GoogleAuthButton from "../../componenets/GoogleAuthButton";
 
 const SignUp = () => {
   const [inputs, setInputs] = useState({
@@ -124,6 +125,15 @@ const SignUp = () => {
             >
               {loading ? <span className="loading loading-spinner"></span> : "Sign Up"}
             </button>
+
+            {/* Divider */}
+            <div className="relative flex items-center justify-center my-4">
+              <div className="border-t border-gray-500/30 w-full"></div>
+              <span className="px-4 text-gray-400 text-sm bg-transparent absolute">OR</span>
+            </div>
+
+            {/* Google Auth Button */}
+            <GoogleAuthButton text="Sign up with Google" />
 
             <div className="text-center mt-4">
               <Link

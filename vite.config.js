@@ -11,7 +11,8 @@ export default defineConfig({
 		port: 3000,
 		proxy: {
 			"/api": {
-				target: "https://chatapp-backend-1-2k8y.onrender.com",
+				// Use localhost for development, production URL will be handled differently
+				target: "https://chatapp-backend-1-2k8y.onrender.com" || "http://localhost:5000",
 				changeOrigin: true,
 				secure: false,
 			},
