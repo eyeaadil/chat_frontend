@@ -11,8 +11,8 @@ export default defineConfig({
 		port: 3000,
 		proxy: {
 			"/api": {
-				// Use localhost for development, production URL will be handled differently
-				target: "https://chatapp-backend-1-2k8y.onrender.com" || "http://localhost:5000",
+				// Use localhost for development, production URL will be handled by vercel.json
+				target: "http://localhost:5000",
 				changeOrigin: true,
 				secure: false,
 			},
