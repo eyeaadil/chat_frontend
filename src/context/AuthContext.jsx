@@ -11,7 +11,7 @@ console.log("Adil ")
 export const AuthContextProvider = ({ children }) => {
 	const fetchUsers = async () => {
 		try {
-			const res = await fetch("http://localhost:5000/api/users", {
+						const res = await fetch("/api/users", {
 				method: "GET",
 				credentials: "include", // Include credentials to send the token
 			});
