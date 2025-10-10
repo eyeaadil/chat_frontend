@@ -1,6 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
+import config from "../config/environment";
 
 const useGoogleAuth = () => {
 	const [loading, setLoading] = useState(false);
@@ -8,9 +9,9 @@ const useGoogleAuth = () => {
 
 	const loginWithGoogle = () => {
 		try {
-			// Redirect to backend Google OAuth endpoint
-			// The proxy will forward /api requests to the backend
-			window.location.href = "/api/auth/google";
+			// For Google OAuth, we need to use the direct backend URL
+			// because Google needs to redirect back to the backend, not through Vercel proxy
+			window.location.href = `${config.backendUrl}/api/auth/google`;
 		} catch (error) {
 			toast.error("Failed to initiate Google login");
 		}

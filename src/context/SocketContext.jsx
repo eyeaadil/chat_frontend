@@ -17,7 +17,6 @@ export const SocketContextProvider = ({ children }) => {
 	useEffect(() => {
 		if (authUser) {
 			console.log("Connecting to socket:", config.socketUrl);
-			console.log("config:", config);
 			
 			const socket = io(config.socketUrl, {
 				query: {
