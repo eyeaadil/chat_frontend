@@ -7,7 +7,7 @@ export const useAuthContext = () => {
 	return useContext(AuthContext);
 };
 
-console.log("Adil ") 	 	
+// console.log("Adil ") 	 	
 export const AuthContextProvider = ({ children }) => {
 	const fetchUsers = async () => {
 		try {
