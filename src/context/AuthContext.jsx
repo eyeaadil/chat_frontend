@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import config from "../config/environment";
 
 export const AuthContext = createContext();
 
@@ -11,7 +12,7 @@ export const useAuthContext = () => {
 export const AuthContextProvider = ({ children }) => {
 	const fetchUsers = async () => {
 		try {
-						const res = await fetch("/api/users", {
+						const res = await fetch(`${config.backendUrl}/api/users`, {
 				method: "GET",
 				credentials: "include", // Include credentials to send the token
 			});
